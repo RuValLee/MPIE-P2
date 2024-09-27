@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallMovement : MonoBehaviour
 {
@@ -20,5 +21,8 @@ public class BallMovement : MonoBehaviour
         float rotationZ = Input.GetAxis("Horizontal") * rotationSpeed;
 
         transform.rotation = Quaternion.Euler(rotationX, 0, -rotationZ);
+
+        if (Input.GetKeyDown(KeyCode.R))
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
-}
